@@ -30,7 +30,7 @@ warnings.filterwarnings("ignore")
 
 st.markdown("<h1 style='text-align: center; color: yellowgreen;'>Application d'évaluation du risque de crédit💸</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: mediumvioletred;'>🏦 Bienvenus! 🏦</h1>", unsafe_allow_html=True)
-logo = Image.open("C:/Users/Meriem/OneDrive/Bureau/Projet 07/Dashboard/logo projet 07.png")
+logo = Image.open("/home/ubuntu/oc_projet7/logo.png")
 
 st.sidebar.image(logo)
 st.markdown("<h2 style ='text-align: left; color: yellowgreen;'>Les principaux objectifs du projet:</h2>", unsafe_allow_html=True)
@@ -40,8 +40,8 @@ st.markdown("#### - Construire un modèle d'apprentissage automatique qui prédi
 st.markdown("#### - Rendre ce modèle d'apprentissage automatique disponible via une API.")
 st.markdown("#### - Créez un tableau de bord interactif pour les responsables des relations bancaires.")
 
-img1 = Image.open("C:/Users/Meriem/OneDrive/Bureau/Projet 07/Dashboard/picture.png")
-img2 = Image.open("C:/Users/Meriem/OneDrive/Bureau/Projet 07/Dashboard/vignette_CRplus1500.png")
+img1 = Image.open("/home/ubuntu/oc_projet7/picture.png")
+img2 = Image.open("/home/ubuntu/oc_projet7/vignette.png")
 
 col1, col2 = st.columns([1, 1])
 
@@ -60,7 +60,7 @@ with col2:
 ###############
 @st.cache
 def load_data():
-    path_df =(r"C:/Users/Meriem/OneDrive/Bureau/Projet 07/test_DASH.csv")
+    path_df =(r"/home/ubuntu/oc_projet7/test_DASH.csv")
     df = pd.read_csv(path_df, index_col='SK_ID_CURR', encoding ='utf-8')#,index_col='SK_ID_CURR',nrows=100
     return df
 
@@ -141,7 +141,7 @@ data_credit = load_credit_population(df)
 #########################################################################################
 # La position du client par rapport aux clients du data de traitement (Anciens clients)
 #########################################################################################
-path_df_histo =(r"C:/Users/Meriem/OneDrive/Bureau/Projet 07/train_DASH.csv")
+path_df_histo =(r"/home/ubuntu/oc_projet7/train_DASH.csv")
 df_h = pd.read_csv(path_df_histo, index_col='SK_ID_CURR', encoding ='utf-8')
 
 #L'Âge
@@ -224,7 +224,7 @@ if st.checkbox("Voir la situation du client sélectionné par rapport aux autres
 #Affichage de la décision d'accordement de crédit 
 ###########################################
 #Appel de l'API : 
-url_API = 'http://192.168.1.70:5000/predict'
+url_API = 'http://172.31.95.153:5000/predict'
 r = requests.post(url_API,json={'ID':ID})
 #print(r.json())  
 data_API = r.json()
@@ -299,9 +299,9 @@ if st.checkbox("Afficher la décision de crédit"):
 ###########################################
 
 
-path_df =(r"C:/Users/Meriem/OneDrive/Bureau/Projet 07/test_API.csv")
+path_df =(r"/home/ubuntu/oc_projet7/test_API.csv")
 df_API = pd.read_csv(path_df, encoding ='utf-8')
-model = pickle.load(open('C:/Users/Meriem/OneDrive/Bureau/Projet 07/lgbm_Classifier.pkl','rb'))
+model = pickle.load(open('/home/ubuntu/oc_projet7/lgbm_Classifier.pkl','rb'))
 print(model)
 st.write("### Feature importance locale")
 variables_importance_locale = st.checkbox(

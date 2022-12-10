@@ -12,7 +12,7 @@ import json
 
 
 # importé le Data Set
-path_df =(r"C:/Users/Meriem/OneDrive/Bureau/Projet 07/test_API.csv")
+path_df =(r"/home/ubuntu/oc_projet7/test_API.csv")
 df = pd.read_csv(path_df, encoding ='utf-8')
 print('La taille de df est: ', df.shape)
 
@@ -52,7 +52,7 @@ def predict():
     
 #lancement de l'application
 if __name__ == "__main__":
-    app.run(host="192.168.1.70",port=5000,debug=True)
+    app.run(host="172.31.95.153",port=5000,debug=True)
     
 
 
