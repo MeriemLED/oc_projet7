@@ -141,7 +141,7 @@ data_credit = load_credit_population(df)
 #########################################################################################
 # La position du client par rapport aux clients du data de traitement (Anciens clients)
 #########################################################################################
-path_df_histo =(r"/home/ubuntu/oc_projet7/train_DASH.csv")
+path_df_histo =(r"/home/ubuntu/oc_projet7/train_Dash.csv")
 df_h = pd.read_csv(path_df_histo, index_col='SK_ID_CURR', encoding ='utf-8')
 
 #L'Âge
