@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed -ri 's/([0-9]{1,3}\.){3}[0-9]{1,3}/'"`hostname -I`/" *.py
+sed -ri 's/([0-9]{1,3}\.){3}[0-9]{1,3}/'"`ip --br a | grep eth0 | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1`/" *.py
 
 apt update && apt upgrade -y
 
